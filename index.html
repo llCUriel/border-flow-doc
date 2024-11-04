@@ -1,12 +1,117 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página GitHub</title>
+    <title>App Documentation</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>¡Hola, GitHub Pages!</h1>
-    <p>Esta es una página básica de ejemplo.</p>
+    <div class="container">
+        <header>
+            <h1>BorderFlow</h1>
+            <nav>
+                <a href="#overview">Overview</a> |
+                <a href="#demo">Live Demo</a> |
+                <a href="#architecture">Architecture</a> |
+                <a href="#features">Key Features</a> |
+                <a href="#stack">Technology Stack</a> |
+                <a href="#api">API Contracts</a> |
+                <a href="#author">Author</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="overview" class="content">
+                <h2>Overview</h2>
+                <p>This application is a currency exchange platform designed to provide users with real-time conversion rates between USD and MXN (Mexican Peso) and USD and COP (Colombian Peso). It allows users to input an amount in USD, view the equivalent amount in their chosen currency, and confirm the transaction. Once confirmed, the transaction details are securely stored for future reference.</p>
+            </section>
+
+            <section id="demo" class="content">
+                <h2>Live Demo</h2>
+                <p>Experience the application in real time by accessing the <a href="https://example.com/live-demo" target="_blank">live demo</a>. Explore its features, perform currency conversions, and see how transactions are processed seamlessly.</p>
+            </section>
+            
+        
+            <section id="architecture" class="content">
+                <h2>Architecture</h2>
+                <img src="img/architecture.png" alt="Architecture Diagram" class="intro-image" onclick="openModal(this.src)">
+            </section>
+
+            <!-- Modal for full-size image display -->
+            <div id="modal" class="modal" onclick="closeModal()">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="modal-image">
+            </div>
+
+            <section id="version-history" class="content">
+                <h2>Version History</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Version</th>
+                            <th>Date</th>
+                            <th>Features</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.0.0</td>
+                            <td>2024-04-11</td>
+                            <td>Initial release with currency conversion and transaction confirmation features.</td>
+                            <td>Stable release for production</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="features" class="content">
+                <h2>Key Features</h2>
+                <ul>
+                    <li><b>Real-Time Currency Conversion:</b> The application provides up-to-date conversion rates for USD to MXN and USD to COP, allowing users to quickly see the equivalent amount in their preferred currency.</li>
+                    <li><b>Transaction Confirmation:</b> Users can confirm a transaction, which triggers secure storage of the transaction details in the backend. This includes the amount converted, exchange rate used, and other relevant transaction details.</li>
+                    <li><b>Scalable Serverless Architecture:</b> Built using AWS serverless components, the application is highly scalable and optimized for performance, allowing it to handle large volumes of requests with minimal latency.</li>
+                    <li><b>Caching for Fast Response:</b> Exchange rates are cached to ensure quick access and minimal load on the database. This improves the user experience by reducing response times.</li>
+                    <li><b>Secure Data Handling:</b> Sensitive information, such as transaction records and API keys, is stored and managed securely using AWS Secrets Manager and Parameter Store, following best practices for security and data privacy.</li>
+                </ul>
+            </section>
+
+            <section id="stack" class="content">
+                <h2>Technology Stack</h2>
+                <ul>
+                    <li><b>Frontend:</b> Built with React, the frontend is hosted on Amazon S3 for scalable static storage, with Amazon CloudFront as a Content Delivery Network (CDN) to ensure low-latency delivery globally. React enables a dynamic and responsive user interface for real-time currency conversions.</li>
+                    <li><b>Backend:</b> The backend logic is implemented in Python, using AWS Lambda to handle core functionalities like currency conversion calculations and transaction processing. Python’s integration with AWS Lambda allows for fast, scalable, and efficient processing of backend tasks.</li>
+                    <li><b>API Management:</b> Amazon API Gateway serves as the entry point for backend requests, managing and routing API calls to the appropriate Python Lambda functions.</li>
+                    <li><b>Request Queueing:</b> Amazon SQS (Simple Queue Service) queues incoming requests to handle high traffic and ensure smooth processing during peak times.</li>
+                    <li><b>Database:</b> Amazon RDS is used for storing confirmed transaction records, ensuring data persistence and durability.</li>
+                    <li><b>Caching:</b> Amazon ElastiCache (Redis) is used to cache exchange rates, minimizing response times for frequent requests.</li>
+                    <li><b>Security:</b> AWS Secrets Manager and Parameter Store manage secure access to configuration settings and sensitive information.</li>
+                </ul>
+            </section>
+
+            <section id="repositories" class="content">
+                <h2>Repositories</h2>
+                <p>Access the source code for the BorderFlow application using the links below:</p>
+                <ul>
+                    <li><b>Frontend Repository:</b> <a href="https://github.com/username/borderflow-frontend" target="_blank">GitHub - BorderFlow Frontend</a></li>
+                    <li><b>Backend Repository:</b> <a href="https://github.com/username/borderflow-backend" target="_blank">GitHub - BorderFlow Backend</a></li>
+                </ul>
+            </section>
+
+            <section id="api" class="content">
+                <h2>API Contracts</h2>
+                <p>For full API details, download the <a href="path/to/swagger.yml" download>Swagger YAML file</a>.</p>
+            </section>
+
+            <section id="author" class="content">
+                <h2>Author</h2>
+                <p>Created by <strong>César Uriel Hernández Castellanos</strong>. Connect on <a href="https://www.linkedin.com/in/cesaruriel/" target="_blank">LinkedIn</a>.</p>
+            </section>
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
